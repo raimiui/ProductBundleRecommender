@@ -16,7 +16,7 @@ namespace ProductBundleRecommender.BLL.Tests.Rules
 
             var rule = new IncomeGt_12000();
 
-            return rule.ConformsRule(new Answers { IncomeAnswer = answer });
+            return rule.Execute(new Answers { IncomeAnswer = answer });
         }
 
         [TestCase(-10, ExpectedResult = false)]
@@ -32,7 +32,7 @@ namespace ProductBundleRecommender.BLL.Tests.Rules
 
             var rule = new IncomeGt_12000();
 
-            return rule.ConformsRule(new Answers { IncomeAnswer = answer });
+            return rule.Execute(new Answers { IncomeAnswer = answer });
         }
     }
 }

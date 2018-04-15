@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
-using ProductBundleRecommender.Models.Bundles;
+﻿using ProductBundleRecommender.Models.Bundles;
 using ProductBundleRecommender.Models.Questions.Answers;
 
-namespace ProductBundleRecommender.BLL
+namespace Bll.Interfaces
 {
     public interface IProductBundleService
     {

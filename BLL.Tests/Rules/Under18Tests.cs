@@ -16,7 +16,7 @@ namespace ProductBundleRecommender.BLL.Tests.Rules
 
             var under18 = new Under18();
 
-            return under18.ConformsRule(new Answers {AgeAnswer = ageAnswer});
+            return under18.Execute(new Answers {AgeAnswer = ageAnswer});
         }
 
         [TestCase(0, ExpectedResult = true)]
@@ -30,7 +30,7 @@ namespace ProductBundleRecommender.BLL.Tests.Rules
 
             var under18 = new Under18();
 
-            return under18.ConformsRule(new Answers { AgeAnswer = ageAnswer });
+            return under18.Execute(new Answers { AgeAnswer = ageAnswer });
         }
     }
 }

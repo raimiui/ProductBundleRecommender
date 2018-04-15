@@ -14,7 +14,7 @@ namespace ProductBundleRecommender.Models.Bundles
             Products = new List<Product> {new JuniorSaverAccount()}
         };
 
-        public override IList<BundleRuleBase> Rules => new List<BundleRuleBase>
+        public override IList<RuleBase> Rules => new List<RuleBase>
         {
             new Under18()
         };

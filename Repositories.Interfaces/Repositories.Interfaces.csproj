@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1C2B921C-7358-4ACA-818C-4CEF79F62969}</ProjectGuid>
+    <ProjectGuid>{9E55DA78-F0A2-4B6A-AE12-54E8E423BF62}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ProductBundleRecommender.BLL</RootNamespace>
-    <AssemblyName>BLL</AssemblyName>
+    <RootNamespace>Repositories.Interfaces</RootNamespace>
+    <AssemblyName>Repositories.Interfaces</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,22 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ProductBundleService.cs" />
+    <Compile Include="IProductBundleRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RuleExecutor.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Bll.Interfaces\Bll.Interfaces.csproj">
-      <Project>{C9CCD405-7FB0-4C54-809B-18F445941A43}</Project>
-      <Name>Bll.Interfaces</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Models\Models.csproj">
       <Project>{D3EC34DA-CCCF-453D-8056-E04D4519DDF4}</Project>
       <Name>Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Repositories.Interfaces\Repositories.Interfaces.csproj">
-      <Project>{9E55DA78-F0A2-4B6A-AE12-54E8E423BF62}</Project>
-      <Name>Repositories.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

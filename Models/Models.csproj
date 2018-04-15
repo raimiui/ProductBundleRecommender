@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bundles\GoldBundle.cs" />
-    <Compile Include="Bundles\Rules\BundleRuleBase.cs" />
+    <Compile Include="Bundles\Rules\RuleBase.cs" />
     <Compile Include="Products\Accounts\Account.cs" />
     <Compile Include="Products\Accounts\CurrentAccount.cs" />
     <Compile Include="Products\Accounts\CurrentPlusAccount.cs" />

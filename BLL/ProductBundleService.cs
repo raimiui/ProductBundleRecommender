@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
+using Bll.Interfaces;
 using ProductBundleRecommender.Models.Bundles;
 using ProductBundleRecommender.Models.Bundles.Rules;
-using ProductBundleRecommender.Models.Questions;
 using ProductBundleRecommender.Models.Questions.Answers;
+using Repositories.Interfaces;
 
 namespace ProductBundleRecommender.BLL
 {
@@ -12,26 +12,37 @@ namespace ProductBundleRecommender.BLL
 
     public class ProductBundleService : IProductBundleService
     {
-        //TODO: to repo
-        public static IList<Bundle> DefaultBundles = new List<Bundle>
+        private readonly IProductBundleRepository _productBundleRepository;
+
+        public ProductBundleService(IProductBundleRepository productBundleRepository)
         {
-            new JuniorSaverBundle().GetDefault,
-            new StudentBundle().GetDefault,
-            new ClassicBundle().GetDefault,
-            new ClassicPlusBundle().GetDefault,
-            new GoldBundle().GetDefault
-        };
+            _productBundleRepository = productBundleRepository;
+        }
 
         public Bundle GetRecommendedBundle(Answers answers)
         {
-            // 1. Filter bundles by executing their rules with given answers
+            // 1. Filter default bundles by executing their rules with given answers
             // 2. Return bundle with highest value
-            var recommendedBundle = 
-                DefaultBundles
-                .Where(x => x.Rules.All(y => y.ConformsRule(answers)))
-                .OrderByDescending(x => x.Value).First();
+            var defaultBundles = _productBundleRepository.GetDefaultBundles();
+
+            var recommendedBundle =
+                defaultBundles
+                    .Where(b => b.Rules.All(r => ExecuteRule(r, answers, b)))
+                    .OrderByDescending(x => x.Value).First();
 
             return recommendedBundle;
+        }
+
+        //TODO: put it somewhere
+        private bool ExecuteRule(RuleBase rule, Answers answers, Bundle bundle)
+        {
+            if (rule is IAnswerParameter)
+                return ((IAnswerParameter) rule).Execute(answers);
+
+            if (rule is IBundleParameter)
+                return ((IBundleParameter)rule).Execute(bundle);
+
+            throw new Exception("Unrecognized rule parameter type.");
         }
 
         public string[] GetAnswers(Bundle bundle)

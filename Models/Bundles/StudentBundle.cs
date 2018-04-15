@@ -15,7 +15,7 @@ namespace ProductBundleRecommender.Models.Bundles
             Products = new List<Product> {new StudentAccount(), new DebitCard(), new CreditCard()}
         };
 
-        public override IList<BundleRuleBase> Rules => new List<BundleRuleBase>
+        public override IList<RuleBase> Rules => new List<RuleBase>
         {
             new Over17(),
             new StudentRule()

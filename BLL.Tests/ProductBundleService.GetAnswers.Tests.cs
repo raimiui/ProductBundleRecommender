@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
+using Moq;
 using NUnit.Framework;
 using ProductBundleRecommender.Models.Bundles;
 using ProductBundleRecommender.Models.Bundles.Rules;
-using ProductBundleRecommender.Models.Questions.Answers;
+using Repositories.Interfaces;
 
 namespace ProductBundleRecommender.BLL.Tests
 {
@@ -13,13 +13,25 @@ namespace ProductBundleRecommender.BLL.Tests
     public class ProductBundleServiceGetAnswersTests
     {
         private ProductBundleService _productBundleService;
-        private Dictionary<Type, BundleRuleBase> _bundleRules;
+        private Dictionary<Type, RuleBase> _bundleRules;
+
+        private static readonly IList<Bundle> DefaultBundles = new List<Bundle>
+        {
+            new JuniorSaverBundle().GetDefault,
+            new StudentBundle().GetDefault,
+            new ClassicBundle().GetDefault,
+            new ClassicPlusBundle().GetDefault,
+            new GoldBundle().GetDefault
+        };
 
         [SetUp]
         public void SetUpFixture()
         {
-            _productBundleService = new ProductBundleService();
-            _bundleRules = new Dictionary<Type, BundleRuleBase>
+            var productBundleRepositoryMock = new Mock<IProductBundleRepository>();
+            productBundleRepositoryMock.Setup(x => x.GetDefaultBundles()).Returns(DefaultBundles);
+
+            _productBundleService = new ProductBundleService(productBundleRepositoryMock.Object);
+            _bundleRules = new Dictionary<Type, RuleBase>
             {
                 {typeof(Under18), new Under18()},
                 {typeof(Over17), new Over17()},

@@ -9,6 +9,6 @@ namespace ProductBundleRecommender.Models.Bundles
         public abstract int Value { get; }
         public abstract Bundle GetDefault { get; }
         public IList<Product> Products { get; set; }
-        public abstract IList<BundleRuleBase> Rules { get; }
+        public abstract IList<RuleBase> Rules { get; }
     }
 }

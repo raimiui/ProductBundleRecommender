@@ -15,7 +15,7 @@ namespace ProductBundleRecommender.BLL.Tests.Rules
 
             var under18 = new StudentRule();
 
-            return under18.ConformsRule(new Answers {StudentAnswer = studentAnswer });
+            return under18.Execute(new Answers {StudentAnswer = studentAnswer });
         }
     }
 }
