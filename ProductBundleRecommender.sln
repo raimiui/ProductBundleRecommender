@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bll.Interfaces", "Bll.Inter
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositories.Interfaces", "Repositories.Interfaces\Repositories.Interfaces.csproj", "{9E55DA78-F0A2-4B6A-AE12-54E8E423BF62}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApp", "WindowsFormsApp\WindowsFormsApp.csproj", "{D8828560-73E3-4CB4-8965-2B86334EE54D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductBundleRecommender", "ProductBundleRecommender\ProductBundleRecommender.csproj", "{D8828560-73E3-4CB4-8965-2B86334EE54D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

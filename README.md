@@ -1,4 +1,6 @@
-# ProductBundleRecommender
+To run:
+
+Run file: ProductBundleRecommender\AppToRun\ProductBundleRecommender.exe
 
 
 Would add:
