@@ -7,6 +7,7 @@ using ProductBundleRecommender.Models.Answers;
 using ProductBundleRecommender.Models.Bundles;
 using ProductBundleRecommender.Models.Products;
 using ProductBundleRecommender.Models.Products.Accounts;
+using ProductBundleRecommender.Models.Products.Cards;
 using Repositories.Interfaces;
 
 namespace ProductBundleRecommender.BLL.Tests
@@ -47,14 +48,14 @@ namespace ProductBundleRecommender.BLL.Tests
                     IncomeAnswer = new IncomeAnswer(default(IncomeRangeEnum))
                 },
                 classicBundle,
-                new JuniorSaverBundle().GetDefault.Products.ToArray()
+                new Product[] { new JuniorSaverAccount() }
             );
 
             Assert.IsInstanceOf<JuniorSaverBundle>(response.ResultBundle);
         }
 
         [Test]
-        public void ProductBundleService_ModifyBundle_Returns_StudentBundle()
+        public void ProductBundleService_ModifyBundle_Returns_StudentBundleNotReturnedForPoorStudent()
         {
             var classicBundle = new ClassicBundle();
 
@@ -67,10 +68,29 @@ namespace ProductBundleRecommender.BLL.Tests
                     IncomeAnswer = new IncomeAnswer(default(IncomeRangeEnum))
                 },
                 classicBundle,
-                new StudentBundle().GetDefault.Products.ToArray()
+                new Product[] { new StudentAccount(), new DebitCard(), new CreditCard() }
             );
 
-            throw new Exception("Is StudentBundle only for rich students? Credit card rule product asks for income > 12000.");
+            Assert.IsInstanceOf<ClassicBundle>(response.ResultBundle);
+        }
+
+        [Test]
+        public void ProductBundleService_ModifyBundle_Returns_StudentBundleForRichStudent()
+        {
+            var classicBundle = new ClassicBundle();
+
+            var response = _productBundleService.ModifyBundle
+            (
+                new Answers
+                {
+                    AgeAnswer = new AgeAnswer(18),
+                    StudentAnswer = new StudentAnswer(true),
+                    IncomeAnswer = new IncomeAnswer(IncomeRangeEnum.Range_12001_40000)
+                },
+                classicBundle,
+                new Product[] { new StudentAccount(), new DebitCard(), new CreditCard() }
+            );
+
             Assert.IsInstanceOf<StudentBundle>(response.ResultBundle);
         }
 
@@ -89,7 +109,7 @@ namespace ProductBundleRecommender.BLL.Tests
                     IncomeAnswer = new IncomeAnswer(income)
                 },
                 classicBundle,
-                new ClassicBundle().GetDefault.Products.ToArray()
+                new Product[] { new CurrentAccount(), new DebitCard() }
             );
 
             Assert.IsInstanceOf<ClassicBundle>(response.ResultBundle);
@@ -110,7 +130,7 @@ namespace ProductBundleRecommender.BLL.Tests
                     IncomeAnswer = new IncomeAnswer(income)
                 },
                 classicBundle,
-                new ClassicPlusBundle().GetDefault.Products.ToArray()
+                new Product[] {new CurrentAccount(), new DebitCard(), new CreditCard()}
             );
 
             Assert.IsInstanceOf<ClassicPlusBundle>(response.ResultBundle);
@@ -130,7 +150,7 @@ namespace ProductBundleRecommender.BLL.Tests
                     IncomeAnswer = new IncomeAnswer(income)
                 },
                 classicBundle,
-                new GoldBundle().GetDefault.Products.ToArray()
+                new Product[] { new CurrentPlusAccount(), new DebitCard(), new GoldCreditCard()}
             );
 
             Assert.IsInstanceOf<GoldBundle>(response.ResultBundle);

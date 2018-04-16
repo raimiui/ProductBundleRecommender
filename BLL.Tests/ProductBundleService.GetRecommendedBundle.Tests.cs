@@ -44,7 +44,7 @@ namespace ProductBundleRecommender.BLL.Tests
         }
 
         [Test]
-        public void ProductBundleService_Recomends_StudentBundle()
+        public void ProductBundleService_Recomends_StudentBundleNotAvailableForPoorStudents()
         {
             var recommendedBundle = _productBundleService.GetRecommendedBundle(
                 new Answers
@@ -54,7 +54,7 @@ namespace ProductBundleRecommender.BLL.Tests
                     IncomeAnswer = new IncomeAnswer(default(IncomeRangeEnum))
                 });
 
-            Assert.IsInstanceOf<StudentBundle>(recommendedBundle);
+            Assert.IsNull(recommendedBundle);
         }
 
         [TestCase(1)]
