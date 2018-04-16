@@ -167,6 +167,6 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy "$(ProjectDir)bin\debug" "$(SolutionDir)AppToRun" /Y /I
-</PostBuildEvent>
+xcopy "$(SolutionDir)\BLL.Tests\bin\debug" "$(SolutionDir)AppToRun\BLL.Tests" /Y /I</PostBuildEvent>
   </PropertyGroup>
 </Project>
