@@ -1,6 +1,7 @@
 ﻿using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using Bll.Interfaces;
 using ProductBundleRecommender.BLL;
 using ProductBundleRecommender.Models.Questions.Answers;
 
@@ -8,8 +9,13 @@ namespace WindowsFormsApp
 {
     public partial class QuestionsForm : Form
     {
-        public QuestionsForm()
+        private readonly IProductBundleService _productBundleService;
+        private readonly IProductService _productService;
+
+        public QuestionsForm(IProductBundleService productBundleService, IProductService productService)
         {
+            _productBundleService = productBundleService;
+            _productService = productService;
             InitializeComponent();
             
 
@@ -81,7 +87,7 @@ namespace WindowsFormsApp
             };
 
             this.Hide();
-            var productBundleForm = new ProductBundleForm{ Answers = answers};
+            var productBundleForm = new ProductBundleForm(_productBundleService, _productService){ Answers = answers};
 
             productBundleForm.VisibleChanged += (o, args) => Show();
             productBundleForm.Show();

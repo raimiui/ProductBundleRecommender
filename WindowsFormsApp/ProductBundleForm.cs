@@ -1,28 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using WindowsFormsApp.Mappers;
-using ProductBundleRecommender.BLL;
+using Bll.Interfaces;
 using ProductBundleRecommender.Models.Bundles;
-using ProductBundleRecommender.Models.Questions.Answers;
 
 namespace WindowsFormsApp
 {
     public partial class ProductBundleForm : Form
     {
-        ProductBundleService _productBundleService;
-        private ProductService _productService;
+        IProductBundleService _productBundleService;
+        private IProductService _productService;
 
-        public ProductBundleForm()
+        public ProductBundleForm(IProductBundleService productBundleService, IProductService productService)
         {
             InitializeComponent();
+            lblBundleName.Text = "";
+            lblErrors.Text = "";
 
             //TODO: DI
-            _productBundleService = new ProductBundleService(new ProductBundleRepository());
-            _productService = new ProductService();
+            _productBundleService = productBundleService;
+            _productService = productService;
         }
 
         private Bundle _formBundle;

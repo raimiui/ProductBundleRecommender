@@ -4,8 +4,6 @@ using ProductBundleRecommender.Models.Bundles;
 using ProductBundleRecommender.Models.Bundles.Rules;
 using ProductBundleRecommender.Models.Products;
 using ProductBundleRecommender.Models.Products.Accounts;
-using ProductBundleRecommender.Models.Products.Cards;
-using ProductBundleRecommender.Models.Questions.Answers;
 
 namespace ProductBundleRecommender.BLL.Tests.Rules
 {

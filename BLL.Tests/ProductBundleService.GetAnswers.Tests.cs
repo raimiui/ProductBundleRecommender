@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Moq;
 using NUnit.Framework;
 using ProductBundleRecommender.Models.Bundles;
-using ProductBundleRecommender.Models.Bundles.Rules;
 using Repositories.Interfaces;
 
 namespace ProductBundleRecommender.BLL.Tests
@@ -13,7 +11,6 @@ namespace ProductBundleRecommender.BLL.Tests
     public class ProductBundleServiceGetAnswersTests
     {
         private ProductBundleService _productBundleService;
-        private Dictionary<Type, RuleBase> _bundleRules;
 
         private static readonly IList<Bundle> DefaultBundles = new List<Bundle>
         {
@@ -31,15 +28,6 @@ namespace ProductBundleRecommender.BLL.Tests
             productBundleRepositoryMock.Setup(x => x.GetDefaultBundles()).Returns(DefaultBundles);
 
             _productBundleService = new ProductBundleService(productBundleRepositoryMock.Object);
-            _bundleRules = new Dictionary<Type, RuleBase>
-            {
-                {typeof(AgeUnder18), new AgeUnder18()},
-                {typeof(AgeOver17), new AgeOver17()},
-                {typeof(StudentRule), new StudentRule()},
-                {typeof(IncomeGt_0), new IncomeGt_0()},
-                {typeof(IncomeGt_12000), new IncomeGt_12000()},
-                {typeof(IncomeGt_40000), new IncomeGt_40000()}
-            };
         }
 
         [Test]

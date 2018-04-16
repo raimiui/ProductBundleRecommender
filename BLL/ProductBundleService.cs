@@ -1,9 +1,7 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Bll.Interfaces;
 using ProductBundleRecommender.BLL.Extensions;
 using ProductBundleRecommender.Models.Bundles;
-using ProductBundleRecommender.Models.Bundles.Rules;
 using ProductBundleRecommender.Models.Products;
 using ProductBundleRecommender.Models.Questions.Answers;
 using Repositories.Interfaces;

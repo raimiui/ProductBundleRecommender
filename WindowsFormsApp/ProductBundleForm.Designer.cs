@@ -37,11 +37,8 @@
             this.btnAddProduct = new System.Windows.Forms.Button();
             this.lblProducts = new System.Windows.Forms.Label();
             this.lstBoxProducts = new System.Windows.Forms.ListBox();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.showQuestionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblBundleName = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -65,8 +62,9 @@
             this.lblErrors.ForeColor = System.Drawing.Color.Red;
             this.lblErrors.Location = new System.Drawing.Point(276, 180);
             this.lblErrors.Name = "lblErrors";
-            this.lblErrors.Size = new System.Drawing.Size(0, 13);
+            this.lblErrors.Size = new System.Drawing.Size(34, 13);
             this.lblErrors.TabIndex = 8;
+            this.lblErrors.Text = "Errors";
             // 
             // btnUpdate
             // 
@@ -133,31 +131,15 @@
             this.lstBoxProducts.TabIndex = 0;
             this.lstBoxProducts.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showQuestionsToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(793, 24);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // showQuestionsToolStripMenuItem
-            // 
-            this.showQuestionsToolStripMenuItem.Name = "showQuestionsToolStripMenuItem";
-            this.showQuestionsToolStripMenuItem.Size = new System.Drawing.Size(102, 20);
-            this.showQuestionsToolStripMenuItem.Text = "Show questions";
-            this.showQuestionsToolStripMenuItem.Click += new System.EventHandler(this.showQuestionsToolStripMenuItem_Click);
-            // 
             // lblBundleName
             // 
             this.lblBundleName.AutoSize = true;
             this.lblBundleName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBundleName.Location = new System.Drawing.Point(49, 37);
             this.lblBundleName.Name = "lblBundleName";
-            this.lblBundleName.Size = new System.Drawing.Size(0, 24);
+            this.lblBundleName.Size = new System.Drawing.Size(121, 24);
             this.lblBundleName.TabIndex = 2;
+            this.lblBundleName.Text = "BundleName";
             // 
             // ProductBundleForm
             // 
@@ -166,14 +148,10 @@
             this.ClientSize = new System.Drawing.Size(793, 547);
             this.Controls.Add(this.lblBundleName);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "ProductBundleForm";
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -187,8 +165,6 @@
         private System.Windows.Forms.Button btnAddProduct;
         private System.Windows.Forms.ListBox listBoxSelectedProducts;
         private System.Windows.Forms.Button btnRemoveProduct;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem showQuestionsToolStripMenuItem;
         private System.Windows.Forms.Label lblBundleName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnUpdate;
