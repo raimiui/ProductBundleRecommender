@@ -1,4 +1,4 @@
-﻿using ProductBundleRecommender.Models.Questions.Answers;
+﻿using ProductBundleRecommender.Models.Answers;
 
 namespace Bll.Interfaces
 {

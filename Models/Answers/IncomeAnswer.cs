@@ -1,6 +1,6 @@
-﻿namespace ProductBundleRecommender.Models.Questions.Answers
+﻿namespace ProductBundleRecommender.Models.Answers
 {
-    public class IncomeAnswer : Answer<IncomeQuestion>
+    public class IncomeAnswer : Answer
     {
         private IncomeRangeEnum _incomeRangeEnum = IncomeRangeEnum.Zero;
 

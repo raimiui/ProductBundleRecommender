@@ -20,7 +20,6 @@ namespace WindowsFormsApp
             lblBundleName.Text = "";
             lblErrors.Text = "";
 
-            //TODO: DI
             _productBundleService = productBundleService;
             _productService = productService;
         }

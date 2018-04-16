@@ -1,6 +1,6 @@
 ﻿using System;
 using Bll.Interfaces;
-using ProductBundleRecommender.Models.Questions.Answers;
+using ProductBundleRecommender.Models.Answers;
 
 namespace ProductBundleRecommender.BLL
 {

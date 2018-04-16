@@ -1,6 +1,6 @@
-﻿namespace ProductBundleRecommender.Models.Questions.Answers
+﻿namespace ProductBundleRecommender.Models.Answers
 {
-    public class StudentAnswer : Answer<StudentQuestion>
+    public class StudentAnswer : Answer
     {
         private readonly bool _isStudent;
 

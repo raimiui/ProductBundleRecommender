@@ -42,7 +42,16 @@
   <ItemGroup>
     <Compile Include="Bundles\BundleModificationResponse.cs" />
     <Compile Include="Bundles\GoldBundle.cs" />
+    <Compile Include="Bundles\Rules\AgeOver17.cs" />
+    <Compile Include="Bundles\Rules\AgeRuleBase.cs" />
+    <Compile Include="Bundles\Rules\AgeUnder18.cs" />
+    <Compile Include="Bundles\Rules\DebitCardAccountRule.cs" />
+    <Compile Include="Bundles\Rules\IncomeGt_0.cs" />
+    <Compile Include="Bundles\Rules\IncomeGt_12000.cs" />
+    <Compile Include="Bundles\Rules\IncomeGt_40000.cs" />
+    <Compile Include="Bundles\Rules\IncomeRuleBase.cs" />
     <Compile Include="Bundles\Rules\RuleBase.cs" />
+    <Compile Include="Bundles\Rules\StudentRule.cs" />
     <Compile Include="Products\Accounts\Account.cs" />
     <Compile Include="Products\Accounts\CurrentAccount.cs" />
     <Compile Include="Products\Accounts\CurrentPlusAccount.cs" />
@@ -59,16 +68,11 @@
     <Compile Include="Products\Cards\CreditCard.cs" />
     <Compile Include="Products\Cards\DebitCard.cs" />
     <Compile Include="Products\Product.cs" />
-    <Compile Include="Questions\AgeQuestion.cs" />
-    <Compile Include="Questions\Answers\AgeAnswer.cs" />
-    <Compile Include="Questions\Answers\Answer.cs" />
-    <Compile Include="Questions\Answers\Answers.cs" />
-    <Compile Include="Questions\Answers\IncomeAnswer.cs" />
-    <Compile Include="Questions\Answers\StudentAnswer.cs" />
-    <Compile Include="Questions\IncomeQuestion.cs" />
-    <Compile Include="Questions\Question.cs" />
-    <Compile Include="Questions\Questionnaire.cs" />
-    <Compile Include="Questions\StudentQuestion.cs" />
+    <Compile Include="Answers\AgeAnswer.cs" />
+    <Compile Include="Answers\Answer.cs" />
+    <Compile Include="Answers\Answers.cs" />
+    <Compile Include="Answers\IncomeAnswer.cs" />
+    <Compile Include="Answers\StudentAnswer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

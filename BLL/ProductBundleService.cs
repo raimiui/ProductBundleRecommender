@@ -1,15 +1,13 @@
 ﻿using System.Linq;
 using Bll.Interfaces;
 using ProductBundleRecommender.BLL.Extensions;
+using ProductBundleRecommender.Models.Answers;
 using ProductBundleRecommender.Models.Bundles;
 using ProductBundleRecommender.Models.Products;
-using ProductBundleRecommender.Models.Questions.Answers;
 using Repositories.Interfaces;
 
 namespace ProductBundleRecommender.BLL
 {
-    //TODO: get answers by user
-
     public class ProductBundleService : IProductBundleService
     {
         private readonly IProductBundleRepository _productBundleRepository;

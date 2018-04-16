@@ -1,9 +1,7 @@
-﻿using System.Drawing;
-using System.Linq;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 using Bll.Interfaces;
 using ProductBundleRecommender.BLL;
-using ProductBundleRecommender.Models.Questions.Answers;
+using ProductBundleRecommender.Models.Answers;
 
 namespace WindowsFormsApp
 {
@@ -11,18 +9,19 @@ namespace WindowsFormsApp
     {
         private readonly IProductBundleService _productBundleService;
         private readonly IProductService _productService;
+        private readonly IAnswerService _answerService;
 
-        public QuestionsForm(IProductBundleService productBundleService, IProductService productService)
+        public QuestionsForm(IProductBundleService productBundleService, IProductService productService, IAnswerService answerService)
         {
             _productBundleService = productBundleService;
             _productService = productService;
+            _answerService = answerService;
             InitializeComponent();
             
 
-            //TODO: DI
-            var answerService = new AnswerService();
-            
-            var possibleAgeQuestionAnswers = answerService.GetPossibleAgeQuestionAnswers();//.Select(x=>x.ToString()).Concat(new[] { "Enter your value.." }).ToArray();
+            _answerService = answerService;
+
+            var possibleAgeQuestionAnswers = answerService.GetPossibleAgeQuestionAnswers();
             var possibleStudentQuestionAnswers = answerService.GetPossibleStudentQuestionAnswers();
             var possibleIncomeQuestionAnswers = answerService.GetPossibleIncomeQuestionAnswers();
 
@@ -36,19 +35,8 @@ namespace WindowsFormsApp
             // allows only one value selected
             if (chLbxAge.CheckedItems.Count >= 1 && e.CurrentValue != CheckState.Checked)
             {
-
                 e.NewValue = e.CurrentValue;
             }
-
-            /*if (e.Index == chLbxAge.Items.Count - 1)
-            {
-                MessageBox.Show("TAD");
-                var textBox = new TextBox();
-                textBox.Location = new Point(chLbxAge.Location.X, chLbxAge.Location.Y);
-                textBox.Width = chLbxAge.Width;
-
-                chLbxAge.Controls.Add(textBox);
-            }*/
         }
 
         private void chLbxStudent_ItemCheck(object sender, ItemCheckEventArgs e)

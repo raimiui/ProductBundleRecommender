@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
+using ProductBundleRecommender.Models.Answers;
 using ProductBundleRecommender.Models.Bundles;
 using ProductBundleRecommender.Models.Bundles.Rules;
 using ProductBundleRecommender.Models.Products;
-using ProductBundleRecommender.Models.Questions.Answers;
 
 namespace ProductBundleRecommender.BLL.Extensions
 {

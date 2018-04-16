@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Bll.Interfaces;
 using ProductBundleRecommender.BLL;
+using ProductBundleRecommender.Repository;
 using Repositories.Interfaces;
 using Unity;
 using Unity.Lifetime;
@@ -24,17 +25,26 @@ namespace WindowsFormsApp
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new QuestionsForm(container.Resolve<IProductBundleService>(), container.Resolve<IProductService>()));
+            Application.Run
+            (
+                new QuestionsForm
+                (
+                    container.Resolve<IProductBundleService>(),
+                    container.Resolve<IProductService>(),
+                    container.Resolve<IAnswerService>()
+                )
+            );
         }
 
         private static void RegisterTypes(UnityContainer container)
         {
             // Repositories
             container.RegisterType<IProductBundleRepository, ProductBundleRepository>(new ContainerControlledLifetimeManager()); 
-            container.RegisterType<IProductBundleService, ProductBundleService>(new ContainerControlledLifetimeManager());
             
             // Services
-            container.RegisterType<IProductService, ProductService>(new ContainerControlledLifetimeManager()); 
+            container.RegisterType<IProductBundleService, ProductBundleService>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IProductService, ProductService>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IAnswerService, AnswerService>(new ContainerControlledLifetimeManager());
         }
     }
 }

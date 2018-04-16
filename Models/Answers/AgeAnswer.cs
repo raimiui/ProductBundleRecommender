@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace ProductBundleRecommender.Models.Questions.Answers
+namespace ProductBundleRecommender.Models.Answers
 {
-    public class AgeAnswer : Answer<AgeQuestion>
+    public class AgeAnswer : Answer
     {
         private AgeRangeEnum _ageRange = AgeRangeEnum.Range_0_17;
         public AgeAnswer(int age)

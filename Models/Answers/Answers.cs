@@ -1,4 +1,4 @@
-﻿namespace ProductBundleRecommender.Models.Questions.Answers
+﻿namespace ProductBundleRecommender.Models.Answers
 {
     public class Answers
     {

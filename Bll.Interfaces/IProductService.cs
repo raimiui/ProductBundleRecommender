@@ -1,5 +1,5 @@
-﻿using ProductBundleRecommender.Models.Products;
-using ProductBundleRecommender.Models.Questions.Answers;
+﻿using ProductBundleRecommender.Models.Answers;
+using ProductBundleRecommender.Models.Products;
 
 namespace Bll.Interfaces
 {

@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using Moq;
 using NUnit.Framework;
+using ProductBundleRecommender.Models.Answers;
 using ProductBundleRecommender.Models.Bundles;
-using ProductBundleRecommender.Models.Questions.Answers;
 using Repositories.Interfaces;
 
 namespace ProductBundleRecommender.BLL.Tests

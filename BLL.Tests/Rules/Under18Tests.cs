@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
+using ProductBundleRecommender.Models.Answers;
 using ProductBundleRecommender.Models.Bundles.Rules;
-using ProductBundleRecommender.Models.Questions.Answers;
 
 namespace ProductBundleRecommender.BLL.Tests.Rules
 {

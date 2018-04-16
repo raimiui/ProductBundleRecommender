@@ -2,7 +2,7 @@
 using ProductBundleRecommender.Models.Bundles;
 using Repositories.Interfaces;
 
-namespace ProductBundleRecommender.BLL
+namespace ProductBundleRecommender.Repository
 {
     public class ProductBundleRepository : IProductBundleRepository
     {
