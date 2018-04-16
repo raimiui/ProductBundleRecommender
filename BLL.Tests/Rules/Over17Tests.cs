@@ -14,7 +14,7 @@ namespace ProductBundleRecommender.BLL.Tests.Rules
         {
             var ageAnswer = new AgeAnswer(age);
 
-            var over17 = new Over17();
+            var over17 = new AgeOver17();
 
             return over17.Execute(new Answers {AgeAnswer = ageAnswer});
         }
@@ -29,7 +29,7 @@ namespace ProductBundleRecommender.BLL.Tests.Rules
         {
             var ageAnswer = new AgeAnswer(age);
 
-            var over17 = new Over17();
+            var over17 = new AgeOver17();
 
             return over17.Execute(new Answers { AgeAnswer = ageAnswer });
         }

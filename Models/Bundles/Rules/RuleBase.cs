@@ -5,6 +5,7 @@ using ProductBundleRecommender.Models.Questions.Answers;
 
 namespace ProductBundleRecommender.Models.Bundles.Rules
 {
+    //TODO: move to higher level. It is also used in Products
     public abstract class RuleBase
     {
         public abstract string Text { get; }
@@ -29,7 +30,7 @@ namespace ProductBundleRecommender.Models.Bundles.Rules
         public abstract bool Execute(Answers answers);
     }
 
-    public class Under18 : AgeRule
+    public class AgeUnder18 : AgeRule
     {
         public override string Text => "Age < 18";
 
@@ -39,7 +40,7 @@ namespace ProductBundleRecommender.Models.Bundles.Rules
         }
     }
 
-    public class Over17 : AgeRule
+    public class AgeOver17 : AgeRule
     {
         public override string Text => "Age > 17";
 

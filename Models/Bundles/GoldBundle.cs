@@ -12,12 +12,12 @@ namespace ProductBundleRecommender.Models.Bundles
 
         public override Bundle GetDefault => new GoldBundle
         {
-            Products = new List<Product> {new CurrentAccount(), new DebitCard(), new GoldCard()}
+            Products = new List<Product> {new CurrentAccount(), new DebitCard(), new GoldCreditCard()}
         };
 
         public override IList<RuleBase> Rules => new List<RuleBase>
         {
-            new Over17(),
+            new AgeOver17(),
             new IncomeGt_40000()
         };
     }

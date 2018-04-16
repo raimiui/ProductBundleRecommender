@@ -72,7 +72,7 @@ namespace ProductBundleRecommender.BLL.Tests.Rules
         public void RulesTests_DebitCardAccountRule_HandlesNoAccount()
         {
             var bundle = new GoldBundle().GetDefault;
-            bundle.Products = new List<Product> { new Card() };
+            bundle.Products = new List<Product>();
 
             var rule = new DebitCardAccountRule();
 

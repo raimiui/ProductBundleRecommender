@@ -17,7 +17,7 @@ namespace ProductBundleRecommender.Models.Bundles
 
         public override IList<RuleBase> Rules => new List<RuleBase>
         {
-            new Over17(),
+            new AgeOver17(),
             new IncomeGt_0()
         };
     }

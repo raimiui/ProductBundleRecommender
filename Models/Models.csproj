@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bundles\BundleModificationResponse.cs" />
     <Compile Include="Bundles\GoldBundle.cs" />
     <Compile Include="Bundles\Rules\RuleBase.cs" />
     <Compile Include="Products\Accounts\Account.cs" />
@@ -54,7 +55,7 @@
     <Compile Include="Bundles\JuniorSaverBundle.cs" />
     <Compile Include="Bundles\StudentBundle.cs" />
     <Compile Include="Products\Cards\Card.cs" />
-    <Compile Include="Products\Cards\GoldCard.cs" />
+    <Compile Include="Products\Cards\GoldCreditCard.cs" />
     <Compile Include="Products\Cards\CreditCard.cs" />
     <Compile Include="Products\Cards\DebitCard.cs" />
     <Compile Include="Products\Product.cs" />

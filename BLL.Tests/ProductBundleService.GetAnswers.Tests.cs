@@ -33,8 +33,8 @@ namespace ProductBundleRecommender.BLL.Tests
             _productBundleService = new ProductBundleService(productBundleRepositoryMock.Object);
             _bundleRules = new Dictionary<Type, RuleBase>
             {
-                {typeof(Under18), new Under18()},
-                {typeof(Over17), new Over17()},
+                {typeof(AgeUnder18), new AgeUnder18()},
+                {typeof(AgeOver17), new AgeOver17()},
                 {typeof(StudentRule), new StudentRule()},
                 {typeof(IncomeGt_0), new IncomeGt_0()},
                 {typeof(IncomeGt_12000), new IncomeGt_12000()},
@@ -46,7 +46,7 @@ namespace ProductBundleRecommender.BLL.Tests
         public void ProductBundleService_GetsAnswersFor_JuniorSaverBundle()
         {
             var bundle = new JuniorSaverBundle();
-            var answers = _productBundleService.GetAnswers(bundle);
+            var answers = _productBundleService.GetRulesConditions(bundle);
 
             var expectedAnswers = new[]
             {
@@ -61,7 +61,7 @@ namespace ProductBundleRecommender.BLL.Tests
         public void ProductBundleService_GetsAnswersFor_StudentBundle()
         {
             var bundle = new StudentBundle();
-            var answers = _productBundleService.GetAnswers(bundle);
+            var answers = _productBundleService.GetRulesConditions(bundle);
 
             var expectedAnswers = new[]
             {
@@ -77,7 +77,7 @@ namespace ProductBundleRecommender.BLL.Tests
         public void ProductBundleService_GetsAnswersFor_ClassicBundle()
         {
             var bundle = new ClassicBundle();
-            var answers = _productBundleService.GetAnswers(bundle);
+            var answers = _productBundleService.GetRulesConditions(bundle);
 
             var expectedAnswers = new[]
             {
@@ -93,7 +93,7 @@ namespace ProductBundleRecommender.BLL.Tests
         public void ProductBundleService_GetsAnswersFor_ClassicPlusBundle()
         {
             var bundle = new ClassicPlusBundle();
-            var answers = _productBundleService.GetAnswers(bundle);
+            var answers = _productBundleService.GetRulesConditions(bundle);
 
             var expectedAnswers = new[]
             {
@@ -108,7 +108,7 @@ namespace ProductBundleRecommender.BLL.Tests
         public void ProductBundleService_GetsAnswersFor_GoldBundle()
         {
             var bundle = new GoldBundle();
-            var answers = _productBundleService.GetAnswers(bundle);
+            var answers = _productBundleService.GetRulesConditions(bundle);
 
             var expectedAnswers = new[]
             {

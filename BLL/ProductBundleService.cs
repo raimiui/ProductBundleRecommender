@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Linq;
 using Bll.Interfaces;
+using ProductBundleRecommender.BLL.Extensions;
 using ProductBundleRecommender.Models.Bundles;
 using ProductBundleRecommender.Models.Bundles.Rules;
+using ProductBundleRecommender.Models.Products;
 using ProductBundleRecommender.Models.Questions.Answers;
 using Repositories.Interfaces;
 
@@ -24,28 +26,40 @@ namespace ProductBundleRecommender.BLL
             // 1. Filter default bundles by executing their rules with given answers
             // 2. Return bundle with highest value
             var defaultBundles = _productBundleRepository.GetDefaultBundles();
-
-            var recommendedBundle =
-                defaultBundles
-                    .Where(b => b.Rules.All(r => ExecuteRule(r, answers, b)))
-                    .OrderByDescending(x => x.Value).First();
+            Bundle recommendedBundle = defaultBundles.GetBundleByAnswers(answers);
 
             return recommendedBundle;
         }
 
-        //TODO: put it somewhere
-        private bool ExecuteRule(RuleBase rule, Answers answers, Bundle bundle)
+        public BundleModificationResponse ModifyBundle(Answers answers, Bundle bundleBeingModified, Product[] products)
         {
-            if (rule is IAnswerParameter)
-                return ((IAnswerParameter) rule).Execute(answers);
+            var defaultBundles = _productBundleRepository.GetDefaultBundles();
+            var response = new BundleModificationResponse();
 
-            if (rule is IBundleParameter)
-                return ((IBundleParameter)rule).Execute(bundle);
+            // - Check if passed in products comply to answers
+            if (products.CompliesAnswers(answers))
+            {
+                //      * Yes: 
+            //           - Try get result bundle by products
+                var resultBundle = defaultBundles.GetBundleByProducts(products);
+                //              * exists:      return bundle
+                if (resultBundle != null)
+                {
+                    response.ResultBundle = resultBundle;
+                    return response;
+                }
+            //              * not exists:  No such bundle (BundleBeingModified rules)
+            }
 
-            throw new Exception("Unrecognized rule parameter type.");
+            //      * No: not exists:  No such bundle (BundleBeingModified rules)
+            response.ResultBundle = bundleBeingModified;
+            response.Errors = GetRulesConditions(bundleBeingModified);
+            return response;
         }
 
-        public string[] GetAnswers(Bundle bundle)
+        
+
+        public string[] GetRulesConditions(Bundle bundle)
         {
             return bundle.Rules.Select(r => r.Text).ToArray();
         }

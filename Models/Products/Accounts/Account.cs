@@ -1,6 +1,6 @@
 ﻿namespace ProductBundleRecommender.Models.Products.Accounts
 {
-    public class Account : Product
+    public abstract class Account : Product
     {
     }
 }
