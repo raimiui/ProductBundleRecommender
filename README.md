@@ -3,6 +3,8 @@
 	- Open test runner: ProductBundleRecommender\AppToRun\nunit-gui.exe.lnk
 	- In test runner open file: ProductBundleRecommender\AppToRun\BLL.Tests.dll
 	- Run
+	
+I've left failing test "ProductBundleService_ModifyBundle_Returns_StudentBundle" intentionally. Is it only for rich students? :)
 
 
 
